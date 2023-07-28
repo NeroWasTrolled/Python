@@ -32,3 +32,13 @@ else:
             print('três')
         else: 
             print('Numero fora do intervalo')
+
+-----------------------------------------
+k = 1 
+somaTotal = 0
+while k < 6:
+    somaTotal += k
+    k += 1
+
+    print(somaTotal)
+
