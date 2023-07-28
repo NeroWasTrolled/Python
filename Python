@@ -11,3 +11,11 @@ not
 and
 or
 '''
+
+
+----------------------------------------
+listaAlunos = ['pong', 'ping', 'mesa', 'bola', 'raquete']
+
+for França in listaAlunos:
+    print(França)
+
