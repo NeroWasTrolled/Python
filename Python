@@ -19,3 +19,16 @@ listaAlunos = ['pong', 'ping', 'mesa', 'bola', 'raquete']
 for França in listaAlunos:
     print(França)
 
+-----------------------------------------
+num = int(input('Digite um numero inteiro (1 a 3):  '))
+
+if num == 1:
+    print('um')
+else:
+    if num == 2:
+        print('dois')
+    else: 
+        if num == 3:
+            print('três')
+        else: 
+            print('Numero fora do intervalo')
