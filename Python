@@ -19,7 +19,7 @@ listaAlunos = ['pong', 'ping', 'mesa', 'bola', 'raquete']
 for França in listaAlunos:
     print(França)
 
------------------------------------------
+----------------------------------------
 num = int(input('Digite um numero inteiro (1 a 3):  '))
 
 if num == 1:
@@ -33,7 +33,7 @@ else:
         else: 
             print('Numero fora do intervalo')
 
------------------------------------------
+----------------------------------------
 k = 1 
 somaTotal = 0
 while k < 6:
@@ -42,3 +42,13 @@ while k < 6:
 
     print(somaTotal)
 
+----------------------------------------
+n1 = 2
+n2 = 3
+
+def operacao (a, b):
+    resultado = a + b
+    return resultado
+
+c = operacao(n1, n2)
+print(c)
