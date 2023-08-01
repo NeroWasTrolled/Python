@@ -52,3 +52,65 @@ def operacao (a, b):
 
 c = operacao(n1, n2)
 print(c)
+------------------------------------------
+
+'''
+#Função que não retorna valor e que não tem parâmetros
+
+#DECLARANDO A FUNÇÃO
+def exibe():
+    print("Estudando funções")
+
+#CHAMANDO A FUNÇÃO
+exibe()
+
+
+
+#Função que não retorna valor e que tem parâmetros
+def multiplicacao(valor1, valor2):
+    print("Produto: ", valor1 * valor2)
+
+multiplicacao(2, 3)
+
+#Função que retorna um valor
+def multiplca (valor1, valor2):
+    return valor1 * valor2
+
+resultado = multiplca(2, 5)
+print(resultado)
+
+#Função que retorna mais de um valor
+def operacoes(n1, n2):
+    return n1 * n2, n1 +  n2, n1 - n2 
+
+produto, total, resto = operacoes (4, 2)
+
+print("Produto: ", produto)
+print("Total: ", total)
+print("Resto: ", resto)
+
+#Retomar mais de um valor usando tupla
+tupla = ()
+lista = ["Produto", "Total", "Resto"]
+k = 0
+
+def operacoes(n1,n2):
+    return n1 * n2, n1 + n2, n1 - n2
+
+tupla = operacoes(10, 3)
+
+while k < len(tupla):
+    print(lista[k], tupla[k])
+    k = k + 1
+'''
+
+----------------------------------------------------
+#Parametros Default
+
+def exibe(fruta, verdura):
+    print("Valor 1: ", fruta)
+    print("Valor 2: ", verdura)
+
+#Chamada da função
+
+exibe('alface','abacaxi')
