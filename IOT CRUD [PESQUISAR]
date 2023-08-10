@@ -1,0 +1,36 @@
+import os
+import csv
+import cadastro
+
+# ... (código das funções de cadastro)
+
+def pesquisar_cliente(cpf):
+    with open('clientes.csv', 'r', newline='', encoding='utf-8') as clientes_csv:
+        reader = csv.DictReader(clientes_csv, delimiter=";")
+        for row in reader:
+            if row['cpf'] == cpf:
+                print("Cliente encontrado:")
+                print("Nome:", row['nome'])
+                print("CPF:", row['cpf'])
+                print("RG:", row['rg'])
+                return
+    print("Cliente não encontrado.")
+    resposta = input("Deseja cadastrar este cliente? [s/n] ")
+    if resposta.lower() == "s":
+        cadastro.cadastrar_cliente()
+
+def pesquisar_livro(codigo):
+    with open('livros.csv', 'r', newline='', encoding='utf-8') as livros_csv:
+        reader = csv.DictReader(livros_csv, delimiter=";")
+        for row in reader:
+            if row['codigo'] == codigo:
+                print("Livro encontrado:")
+                print("Nome:", row['nome'])
+                print("Código:", row['codigo'])
+                print("Autor:", row['autor'])
+                print("Ano de Lançamento:", row['ano de lançamento'])
+                return
+    print("Livro não encontrado.")
+    resposta = input("Deseja cadastrar este livro? [s/n] ")
+    if resposta.lower() == "s":
+        cadastro.cadastrar_livro()
