@@ -1,0 +1,56 @@
+import os
+import csv
+
+def cadastrar_cliente():
+    os.system('cls') or os.system('clear')  # Limpa a tela :D
+    print("-------------CADASTRAR CLIENTE-------------")
+
+    nome = input("Digite seu nome: ")
+    cpf = input("Digite seu CPF: ")
+    rg = input("Digite seu RG: ")
+
+    # Abre o arquivo para leitura e verifica se o cliente já existe pelo CPF '-'
+    with open('clientes.csv', 'r', newline='', encoding='utf-8') as clientes_csv:
+        reader = csv.DictReader(clientes_csv, delimiter=";")
+        for row in reader:
+            if row['cpf'] == cpf:
+                print("Cliente já cadastrado com esse CPF.")
+                return
+    
+    # Prepara os dados para escrever :P
+    dados = {"cpf": cpf, "nome": nome.title(), "rg": rg}
+    colunas = ["cpf", "nome", "rg"]
+
+    # Abre o arquivo para escrever
+    with open('clientes.csv', 'a', newline='', encoding='utf-8') as clientes_csv:
+        cadastrar = csv.DictWriter(clientes_csv, fieldnames=colunas, delimiter=";", lineterminator='\r\n')
+        if clientes_csv.tell() == 0:  # Verifica se o arquivo está vazio
+            cadastrar.writeheader()
+        cadastrar.writerow(dados)
+    print("Cadastrado realizado com sucesso!")
+
+def cadastrar_livro():
+    nome = input("Nome do livro: ")
+    codigo = input("Codigo do livro: ")
+    autor = input("Autor do livro: ")
+    ano_lancamento = input("Ano de lançamento do livro: ")
+
+    # Abre o arquivo para leitura e verifica se o livro já existe pelo código
+    with open('livros.csv', 'r', newline='', encoding='utf-8') as livros_csv:
+        reader = csv.DictReader(livros_csv, delimiter=";")
+        for row in reader:
+            if row['codigo'] == codigo:
+                print("Livro já cadastrado com esse código.")
+                return
+    
+    # Prepara os dados para escrever
+    dados = {"nome": nome.title(), "codigo": codigo, "autor": autor, "ano de lançamento": ano_lancamento}
+    colunas = ["nome", "codigo", "autor", "ano de lançamento"]
+
+    # Abre o arquivo para escrever
+    with open("livros.csv", "a", newline="", encoding="utf-8") as livros_csv:
+        cadastrar = csv.DictWriter(livros_csv, fieldnames=colunas, delimiter=";", lineterminator="\r\n")
+        if livros_csv.tell() == 0:  # Verifica se o arquivo está vazio
+            cadastrar.writeheader()
+        cadastrar.writerow(dados)
+    print("Cadastro realizado com sucesso!")
