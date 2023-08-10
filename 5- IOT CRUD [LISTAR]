@@ -1,0 +1,37 @@
+import os
+import csv
+
+def listar_cliente():
+    os.system('cls') or os.system('clear')  
+    print("-------------LISTAR CLIENTES-------------")
+
+    with open('clientes.csv', 'r', newline='', encoding='utf-8') as clientes_csv:
+        reader = csv.DictReader(clientes_csv, delimiter=";")
+        for row in reader:
+            print("Nome:", row['nome'])
+            print("CPF:", row['cpf'])
+            print("RG:", row['rg'])
+            print("-" * 30)
+listar_cliente()
+
+def listar_livro():
+    os.system('cls') or os.system('clear')  
+    print("-------------LISTAR LIVROS-------------")
+
+    with open('livros.csv', 'r', newline='', encoding='utf-8') as livros_csv:
+        reader = csv.DictReader(livros_csv, delimiter=";")
+        for row in reader:
+            print("Nome:", row['nome'])
+            print("Código:", row['codigo'])
+            print("Autor:", row['autor'])
+            print("Ano de Lançamento:", row['ano de lançamento'])
+            print("-" * 30)
+
+def listar_emprestimo():
+
+
+    return 0
+def listar_atrasos():
+
+
+    return 0
