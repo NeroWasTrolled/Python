@@ -1,0 +1,44 @@
+import os
+import csv
+import cadastro
+
+def emprestar_livro():
+    print("-------------EMPRESTAR LIVRO-------------")
+
+    cpf_cliente = input("Digite o CPF do cliente: ")
+    codigo_livro = input("Digite o código do livro: ")
+
+    cliente_encontrado = False
+    livro_encontrado = False
+
+    # Verifica se o cliente está cadastrado
+    with open('clientes.csv', 'r', newline='', encoding='utf-8') as clientes_csv:
+        reader = csv.DictReader(clientes_csv, delimiter=";")
+        for row in reader:
+            if row['cpf'] == cpf_cliente:
+                cliente_encontrado = True
+                break
+    
+    if not cliente_encontrado:
+        print("Cliente não encontrado. Por favor, cadastre o cliente primeiro.")
+        resposta = input("Deseja cadastrar este cliente? [s/n] ")
+        if resposta.lower() == "s":
+            cadastro.cadastrar_cliente()
+        return
+    
+    # Verifica se o livro está cadastrado
+    with open('livros.csv', 'r', newline='', encoding='utf-8') as livros_csv:
+        reader = csv.DictReader(livros_csv, delimiter=";")
+        for row in reader:
+            if row['codigo'] == codigo_livro:
+                livro_encontrado = True
+                break
+    
+    if not livro_encontrado:
+        print("Livro não encontrado. Por favor, cadastre o livro primeiro.")
+        resposta = input("Deseja cadastrar este livro? [s/n] ")
+        if resposta.lower() == "s":
+            cadastro.cadastrar_livro()
+        return
+    
+    print("Livro emprestado com sucesso!")
